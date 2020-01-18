@@ -20,7 +20,9 @@ Page({
     themeF: null,
     bannerG: null,
     themeESpu: [],
-    themeH: null
+    themeH: null,
+    spuPaging: null,
+    loadingType:'loading'
   },
 
   /**
@@ -33,6 +35,7 @@ Page({
 
   async initBottomSpuList() {
     const paging = SpuPaging.getLatestPaging()
+    this.data.spuPaging = paging
     const data = await paging.getMoreData()
     if (!data) {
       return
@@ -72,6 +75,19 @@ Page({
     })
   },
 
+  onReachBottom: async function () {
+    const data = await this.data.spuPaging.getMoreData()
+    if (!data) {
+      return
+    }
+    wx.lin.renderWaterFlow(data.items)
+    if (!data.moreData) {
+      this.setData({
+        loadingType: 'end'
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -104,13 +120,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 
