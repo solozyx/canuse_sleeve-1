@@ -1,4 +1,37 @@
 
 .container {
+    box-sizing: border-box;
     padding: 30rpx;
+    background-color: white;
+}
+
+.sku-priview {
+    display: flex;
+    flex-direction: row;
+}
+
+.sku-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40rpx;
+}
+
+.sku-img {
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.sku-pending {
+    font-size: 20rpx;
+}
+
+.price-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.discount-price {
+    margin-left: 20rpx;
 }

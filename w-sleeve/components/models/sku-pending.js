@@ -1,3 +1,4 @@
+import {Cell} from "./cell";
 
 
 class SkuPending {
@@ -6,6 +7,14 @@ class SkuPending {
 
     constructor() {
 
+    }
+
+    init(sku) {
+        for (let i=0; i< sku.specs.length; i++) {
+            const s = sku.specs[i]
+            const cell = new Cell(s)
+            this.insertCell(cell, i)
+        }
     }
 
     insertCell(cell, x) {
