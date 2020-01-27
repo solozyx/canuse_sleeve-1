@@ -26,14 +26,6 @@
     font-size: 20rpx;
 }
 
-.sku-pending > text:first-child {
-    color:#999999
-}
-.sku-pending > text:nth-child(2) {
-    color: #666666
-}
-
-
 .price-row {
     display: flex;
     flex-direction: row;
@@ -50,8 +42,28 @@
     color: #999;
 }
 
+.counter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 34rpx;
+    margin-bottom: 200rpx;
+}
+
+.counter-text {
+    font-size: 24rpx;
+}
+
 .stock-pinch {
     margin-left: 30rpx;
     font-size: 20rpx;
     color: #D20109;
+}
+
+.sku-pending > text:first-child {
+    color:#999999
+}
+.sku-pending > text:nth-child(2) {
+color: #666666
 }
