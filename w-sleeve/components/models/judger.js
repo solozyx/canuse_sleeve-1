@@ -16,8 +16,13 @@ class Judger {
         this._initSkuPending()
     }
 
+    isSkuIntact() {
+        return this.skuPending.isIntact()
+    }
+
     _initSkuPending() {
-        this.skuPending = new SkuPending()
+        const pendingSize = this.fenceGroup.fences.length
+        this.skuPending = new SkuPending(pendingSize)
         const defaultSku = this.fenceGroup.getDefaultSku()
         if (!defaultSku) {
             return
@@ -57,6 +62,23 @@ class Judger {
                 this.fenceGroup.setCelStatusByXY(x, y, CellStatus.FORBIDDEN)
             }
         })
+    }
+
+    getDeterminateSku() {
+        const skuCode = this.skuPending.getSkuCode()
+        const sku = this.fenceGroup.getSku(skuCode)
+        return sku
+    }
+
+    getMissingKeys() {
+        const missingKeysIndex = this.skuPending.getMissingSpecIndex()
+        return missingKeysIndex.map(index=>{
+            return this.fenceGroup.fences[index].title
+        })
+    }
+
+    getCurrentValues() {
+        return this.skuPending.getCurrentSpecValues()
     }
 
     _isInDict(path) {

@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="31e38354-d030-4019-826b-e0dc5c21567f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cell/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cell/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/models/fence-group.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/models/fence-group.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/models/judger.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/models/judger.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/models/sku-pending.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/models/sku-pending.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/realm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/realm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/realm/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/realm/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/realm/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/components/realm/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/spu.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/spu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +87,7 @@
       <workItem from="1579014430950" duration="3231000" />
       <workItem from="1579076447182" duration="27787000" />
       <workItem from="1579257171148" duration="29511000" />
-      <workItem from="1579538032611" duration="31845000" />
+      <workItem from="1579538032611" duration="48137000" />
     </task>
     <servers />
   </component>
