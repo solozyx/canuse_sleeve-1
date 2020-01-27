@@ -2,7 +2,7 @@
         l-symbol-class="all-background font-color"
         l-disabled-class="all-background"
         l-class="container"
-        count="{{count}}"
+        count="9"
         min="{{min}}"
         max="{{max}}"
         bind:linout="onOverStep"

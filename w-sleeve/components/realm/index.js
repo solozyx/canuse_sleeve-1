@@ -3,6 +3,7 @@ import {FenceGroup} from "../models/fence-group";
 import {Judger} from "../models/judger";
 import {Spu} from "../../models/spu";
 import {Cell} from "../models/cell";
+import {Cart} from "../../models/cart";
 
 Component({
     /**
@@ -22,7 +23,8 @@ Component({
         price: String,
         stock: String,
         noSpec: Boolean,
-        skuIntact: Boolean
+        skuIntact: Boolean,
+        currentSkuCount: Cart.SKU_MIN_COUNT
     },
 
     observers: {
@@ -44,27 +46,28 @@ Component({
     methods: {
 
         processNoSpec(spu) {
-          this.setData({
-            noSpec: true,
-            skuIntact: false
-          })
-          this.bindSkuData(spu.sku_list[0])
-          return;
+            this.setData({
+                noSpec: true,
+                skuIntact: false
+            })
+            this.bindSkuData(spu.sku_list[0])
+            this.setStockStatus(spu.sku_list[0].stock, this.data.currentSkuCount)
         },
 
         processHasSpec(spu) {
-          const fencesGroup = new FenceGroup(spu)
-          fencesGroup.initFences1()
-          this.data.judger = new Judger(fencesGroup)
+            const fencesGroup = new FenceGroup(spu)
+            fencesGroup.initFences1()
+            this.data.judger = new Judger(fencesGroup)
 
-          const defaultSku = fencesGroup.getDefaultSku()
-          if (defaultSku) {
-            this.bindSkuData(defaultSku)
-          } else {
-            this.bindSpuData()
-          }
-          this.bindTipData()
-          this.bindFenceGroupData(fencesGroup)
+            const defaultSku = fencesGroup.getDefaultSku()
+            if (defaultSku) {
+                this.bindSkuData(defaultSku)
+                this.setStockStatus(defaultSku.stock, this.data.currentSkuCount)
+            } else {
+                this.bindSpuData()
+            }
+            this.bindTipData()
+            this.bindFenceGroupData(fencesGroup)
         },
 
         bindSpuData() {
@@ -86,12 +89,12 @@ Component({
             })
         },
 
-        bindTipData(){
-          this.setData({
-              skuIntact: this.data.judger.isSkuIntact(),
-              currentValues: this.data.judger.getCurrentValues(),
-              missingKeys: this.data.judger.getMissingKeys()
-          })
+        bindTipData() {
+            this.setData({
+                skuIntact: this.data.judger.isSkuIntact(),
+                currentValues: this.data.judger.getCurrentValues(),
+                missingKeys: this.data.judger.getMissingKeys()
+            })
         },
 
         bindFenceGroupData(fenceGroup) {
@@ -99,6 +102,26 @@ Component({
                 fences: fenceGroup.fences
             })
         },
+
+        setStockStatus(stock, currentCount) {
+            this.setData({
+                outStock: this.isOutOfStock(stock, currentCount)
+            })
+        },
+
+        isOutOfStock(stock, currentCount) {
+            return stock < currentCount
+        },
+
+        onSelectCount(event) {
+            const currentCount = event.detail.count
+            this.data.currentSkuCount = currentCount
+            if (this.data.judger.isSkuIntact()) {
+                const sku = this.data.judger.getDeterminateSku()
+                this.setStockStatus(sku.stock, currentCount)
+            }
+        },
+
         onCellTap(event) {
             const data = event.detail.cell
             const cell = new Cell(data.spec)
@@ -109,9 +132,10 @@ Component({
             const judger = this.data.judger
             judger.judge(cell, x, y)
             const isSkuIntact = judger.isSkuIntact()
-            if(isSkuIntact) {
-              const currentSku = judger.getDeterminateSku()
-              this.bindSkuData(currentSku)
+            if (isSkuIntact) {
+                const currentSku = judger.getDeterminateSku()
+                this.bindSkuData(currentSku)
+                this.setStockStatus(currentSku.stock, this.data.currentSkuCount)
             }
             this.bindTipData()
             this.bindFenceGroupData(judger.fenceGroup)
