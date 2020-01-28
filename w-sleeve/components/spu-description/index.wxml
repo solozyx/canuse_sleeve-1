@@ -46,6 +46,12 @@
     </view>
 
     <view class="right">
-
+        <l-button special openType="share">
+            <view class="share-inner">
+                <l-icon color="#157658" name="share" size="24"></l-icon>
+                <text>分</text>
+                <text>享</text>
+            </view>
+        </l-button>
     </view>
 </view>
