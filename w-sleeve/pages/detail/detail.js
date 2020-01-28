@@ -2,6 +2,7 @@
 import {Spu} from "../../models/spu";
 import {ShoppingWay} from "../../core/enum";
 import {SaleExplain} from "../../models/sale-explain";
+import {getWindowHeightRpx} from "../../utils/system";
 
 Page({
 
@@ -21,10 +22,13 @@ Page({
     const spu = await Spu.getDetail(pid)
 
     const explain = await SaleExplain.getFixed()
+    const height = await getWindowHeightRpx()
+    const h = height - 100
 
     this.setData({
       spu,
-      explain
+      explain,
+      h
     })
   },
 

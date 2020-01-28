@@ -1,4 +1,4 @@
-<view>
+<scroll-view style="height:{{h}}rpx" scroll-y>
     <swiper class="top"
             autoplay
             indicator-dots>
@@ -32,7 +32,7 @@
         </block>
     </view>
 
-</view>
+</scroll-view>
 
 
 

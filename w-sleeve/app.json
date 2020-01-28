@@ -4,7 +4,8 @@
     "pages/detail/detail",
     "pages/cart/cart",
     "pages/category/category",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -52,6 +53,8 @@
     "l-price": "/miniprogram_npm/lin-ui/price/index",
     "l-badge": "/miniprogram_npm/lin-ui/badge/index",
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
     "l-button": "/miniprogram_npm/lin-ui/button/index",
     "l-popup": "/miniprogram_npm/lin-ui/popup/index",
     "s-spu-preview": "/components/spu-preview/index",
