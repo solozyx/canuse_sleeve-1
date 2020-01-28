@@ -1,8 +1,14 @@
 
 .container {
     box-sizing: border-box;
-    padding: 30rpx;
     background-color: white;
+    max-height: 1000rpx;
+    min-height: 700rpx;
+    margin-bottom: 100rpx;
+}
+
+.inner-container {
+    padding: 30rpx 30rpx 0 30rpx;
 }
 
 .sku-priview {
@@ -48,7 +54,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 34rpx;
-    margin-bottom: 200rpx;
+    padding-bottom: 200rpx;
 }
 
 .counter-text {
