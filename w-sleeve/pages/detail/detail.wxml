@@ -1,4 +1,13 @@
 
-<s-realm spu="{{spu}}">
+<l-popup contentAlign="bottom" show="{{showRealm}}">
+    <s-realm spu="{{spu}}">
+    </s-realm>
+</l-popup>
 
-</s-realm>
+
+<s-tabbar class="tabbar"
+        bind:gotohome="onGoToHome"
+        bind:gotocart="onGoToCart"
+        bind:addtocart="onAddToCart"
+        bind:buy="onBuy">
+</s-tabbar>

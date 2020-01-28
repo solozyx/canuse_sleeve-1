@@ -1,0 +1,6 @@
+
+
+.tabbar {
+    position: fixed;
+    bottom: 0;
+}
