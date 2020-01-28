@@ -2,7 +2,7 @@
 .container {
     box-sizing: border-box;
     background-color: white;
-    max-height: 1000rpx;
+    max-height: 1100rpx;
     min-height: 700rpx;
     margin-bottom: 100rpx;
 }
