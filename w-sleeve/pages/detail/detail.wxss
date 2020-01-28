@@ -1,5 +1,4 @@
 
-
 .tabbar {
     position: fixed;
     bottom: 0;
@@ -25,6 +24,26 @@
     padding: 0 30rpx;
 }
 
+.explain {
+    margin-top: 10rpx;
+    background-color: white;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-img-container {
+    margin-bottom: 100rpx;
+}
+
+.detail-img {
+    display: flex;
+    width: 100%;
+}
+
 .specs > text:first-child {
     color: #999999;
     font-size: 24rpx;
@@ -33,4 +52,10 @@
 .specs > text:nth-child(2) {
     color: #157658;
     font-size: 24rpx;
+}
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
 }
