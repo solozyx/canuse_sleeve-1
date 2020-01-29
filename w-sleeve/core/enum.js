@@ -11,4 +11,11 @@ const ShoppingWay = {
     BUY: 'buy'
 }
 
-export {CellStatus, ShoppingWay}
+const SpuListType = {
+    THEME: 'theme',
+    ROOT_CATEGORY: 'root-category',
+    SUB_CATEGORY: 'sub-category',
+    LATEST: 'latest'
+}
+
+export {CellStatus, ShoppingWay, SpuListType}
