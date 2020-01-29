@@ -4,13 +4,14 @@
             maxlength="9"
             bg-color="#f1f1f1"
             placeholder="输入商品名称"
-            bind:linconfirm="onSearch">
+            bind:linconfirm="onSearch"
+            bind:lincancel="onCancel">
 
     </l-search-bar>
 </view>
 
 <view class="container">
-    <view>
+    <view wx:if="{{!search}}">
         <view wx:if="{{historyTags.length !== 0}}" class="history-container">
             <view class="history-title">
                 <view class="history-slide"></view>
@@ -22,7 +23,7 @@
             </view>
             <view class="history-tags">
                 <block wx:for="{{historyTags}}" wx:key="{{index}}">
-                    <l-tag l-class="tag" name="{{item}}">
+                    <l-tag bind:lintap="onSearch" l-class="tag" name="{{item}}">
                     {{item}}
                     </l-tag>
                 </block>
@@ -38,12 +39,22 @@
 
             <view class="history-tags">
                 <block wx:for="{{hotTags}}" wx:key="{{index}}">
-                    <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
+                    <l-tag bind:lintap="onSearch" select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
                     {{item.title}}
                     </l-tag>
                 </block>
             </view>
         </view>
     </view>
+
+    <view wx:else>
+        <block wx:for="{{items}}">
+            <s-spu-preview-r data="{{item}}">
+
+            </s-spu-preview-r>
+        </block>
+    </view>
+
+    <l-loading></l-loading>
 
 </view>

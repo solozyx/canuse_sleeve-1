@@ -16,6 +16,9 @@ class HistoryKeyword {
     }
 
     save(keyword) {
+        if (!keyword || keyword.length === 0) {
+            return
+        }
         const items = this.keywords.filter(k=>{
             return k === keyword
         })
