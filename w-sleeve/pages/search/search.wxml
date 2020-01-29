@@ -1,4 +1,3 @@
-
 <view class="header">
     <l-search-bar
             l-class="input"
@@ -24,7 +23,23 @@
             <view class="history-tags">
                 <block wx:for="{{historyTags}}" wx:key="{{index}}">
                     <l-tag l-class="tag" name="{{item}}">
-                        {{item}}
+                    {{item}}
+                    </l-tag>
+                </block>
+            </view>
+        </view>
+
+        <view class="history-container">
+            <view class="history-title">
+                <view class="history-slide"></view>
+                <text class="history-title-text">热门搜索</text>
+                <view style="flex:1"></view>
+            </view>
+
+            <view class="history-tags">
+                <block wx:for="{{hotTags}}" wx:key="{{index}}">
+                    <l-tag select="{{item.highlight}}" l-class="tag" l-select-class="tag-selected" name="{{item.title}}">
+                    {{item.title}}
                     </l-tag>
                 </block>
             </view>

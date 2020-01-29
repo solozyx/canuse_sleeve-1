@@ -1,4 +1,5 @@
 import {HistoryKeyword} from "../../models/history-keyword";
+import {Tag} from "../../models/tag";
 
 const history = new HistoryKeyword()
 Page({
@@ -13,10 +14,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     const historyTags = history.get()
+    const hotTags = await Tag.getSearchTags()
     this.setData({
-      historyTags
+      historyTags,
+      hotTags
     })
   },
 
