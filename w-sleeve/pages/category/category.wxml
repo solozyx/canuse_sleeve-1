@@ -18,14 +18,13 @@
                 itemHeight="90"
                 even="{{false}}"
                 placement="left"
+                scrollable
                 l-active-class="segment-item-active"
                 l-inactive-class="segment-item"
                 l-line-class="l-seg-line">
-            <l-segment-item key="1" tab="1号"></l-segment-item>
-            <l-segment-item key="2" tab="2号"></l-segment-item>
-            <l-segment-item key="3" tab="3号"></l-segment-item>
-            <l-segment-item key="4" tab="4号"></l-segment-item>
-            <l-segment-item key="5" tab="5号"></l-segment-item>
+            <block wx:for="{{roots}}" wx:key="{{index}}">
+                <l-segment-item key="{{index}}" tab="{{item.name}}"></l-segment-item>
+            </block>
         </l-segment>
         <view></view>
     </view>
