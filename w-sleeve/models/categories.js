@@ -17,8 +17,12 @@ class Categories {
         return this.roots
     }
 
-    getSubs(rootId) {
-        return this.roots.find(r=>r.id===rootId)
+    getSubs(parentId) {
+        return this.subs.filter(s=>s.parent_id == parentId)
+    }
+
+    getRoot(rootId) {
+        return this.roots.find(s=>s.id == rootId)
     }
 
 }

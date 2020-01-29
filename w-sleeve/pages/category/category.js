@@ -10,7 +10,7 @@ Page({
    */
   data: {
     categories: Object,
-    defaultRootId: String
+    defaultRootId: 2
   },
 
   /**
@@ -54,6 +54,16 @@ Page({
   onGotoSearch() {
     wx.navigateTo({
       url: '/pages/search/search'
+    })
+  },
+
+  onSegChange(event) {
+    const rootId = event.detail.activeKey
+    const currentSubs = this.data.categories.getSubs(rootId)
+    const currentRoot = this.data.categories.getRoot(rootId)
+    this.setData({
+      currentSubs,
+      currentBannerImg: currentRoot.img
     })
   },
 
