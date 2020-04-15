@@ -48,11 +48,13 @@
     </view>
 
     <view wx:else>
-        <block wx:for="{{items}}">
-            <s-spu-preview-r data="{{item}}">
-
-            </s-spu-preview-r>
-        </block>
+        <l-loadmore show end-text="- wj作品 -" type="{{loadingType}}" loading-text="努力加载中...">
+            <view slot="content" hidden="{{!search}}" class="spu-bottom">
+                <block wx:for="{{items}}">
+                    <s-spu-preview-r data="{{item}}"></s-spu-preview-r>
+                </block>
+            </view>
+        </l-loadmore>
     </view>
 
     <l-loading></l-loading>

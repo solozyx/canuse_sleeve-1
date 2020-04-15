@@ -71,5 +71,16 @@ page {
     justify-content: flex-start;
     margin-top: 20rpx;
     padding-left: 30rpx;
+}
 
+.spu-bottom {
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 18rpx;
+    padding-left: 18rpx;
+    padding-right: 18rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }

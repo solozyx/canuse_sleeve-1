@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historytTags: Array
+    historytTags: Array,
+    searchPaging: null
   },
 
   /**
@@ -35,10 +36,23 @@ Page({
     history.save(keyword)
     this.setHistoryTags()
     this.showLoading()
-    const paging = Search.search(keyword)
-    const data = await paging.getMoreData()
+    this.data.searchPaging = Search.search(keyword)
+    const data = await this.data.searchPaging.getMoreData()
     this.bindItems(data)
     this.hideLoading()
+  },
+
+  onReachBottom: async function () {
+    const data = await this.data.searchPaging.getMoreData()
+    if (!data) {
+      return
+    }
+    this.bindItems(data)
+    if (!data.moreData) {
+      this.setData({
+        loadingType: 'end'
+      })
+    }
   },
 
   showLoading() {
