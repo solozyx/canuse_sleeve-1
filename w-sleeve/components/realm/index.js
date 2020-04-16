@@ -131,9 +131,20 @@ Component({
             return stock < currentCount
         },
 
+        isNoSpec() {
+            const spu = this.properties.spu
+            return Spu.isNoSpec(spu)
+        },
+
         onSelectCount(event) {
             const currentCount = event.detail.count
             this.data.currentSkuCount = currentCount
+
+            if (this.isNoSpec()) {
+                this.setStockStatus(this.getNoSpecSku().stock, currentCount)
+                return
+            }
+
             if (this.data.judger.isSkuIntact()) {
                 const sku = this.data.judger.getDeterminateSku()
                 this.setStockStatus(sku.stock, currentCount)
@@ -161,7 +172,7 @@ Component({
         },
 
         onBuyOrCart() {
-            if (Spu.isNoSpec(this.properties.spu)) {
+            if (this.isNoSpec()) {
                 this.shoppingNoSpec()
                 return
             }

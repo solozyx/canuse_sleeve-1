@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="31e38354-d030-4019-826b-e0dc5c21567f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/category-grid/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/category-grid/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/fence/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/fence/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/realm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/realm/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/realm/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/realm/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/spu-preview/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/spu-preview/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/spu-scroll/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/spu-scroll/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram_npm/lin-ui/countdown/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram_npm/lin-ui/countdown/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram_npm/lin-ui/water-flow/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram_npm/lin-ui/water-flow/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/category/category.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/category/category.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/detail/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail/detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/detail/detail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail/detail.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search/search.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +80,7 @@
       <workItem from="1579257171148" duration="29511000" />
       <workItem from="1579538032611" duration="105647000" />
       <workItem from="1580355789558" duration="5905000" />
-      <workItem from="1586965153608" duration="9903000" />
+      <workItem from="1586965153608" duration="11031000" />
     </task>
     <servers />
   </component>
@@ -99,15 +109,15 @@
     </state>
     <state width="500" height="445" key="SwitcherDM/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587004167979" />
     <state width="500" height="445" key="SwitcherDM/0.23.1680.947@0.23.1680.947" timestamp="1580375384734" />
-    <state x="490" y="233" width="667" height="486" key="find.popup" timestamp="1579319142605">
+    <state x="490" y="233" width="667" height="486" key="find.popup" timestamp="1587022334543">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state x="490" y="233" width="667" height="486" key="find.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1579319142605" />
+    <state x="490" y="233" width="667" height="486" key="find.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587022334543" />
     <state x="490" y="233" width="667" height="486" key="find.popup/0.23.1680.947@0.23.1680.947" timestamp="1578933457020" />
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1587011710163">
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1587013508443">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587011710163" />
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587013508443" />
     <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/0.23.1680.947@0.23.1680.947" timestamp="1586966178647" />
   </component>
 </project>

@@ -27,7 +27,7 @@
     </view>
 
     <view class="detail-img-container">
-        <block wx:for="{{spu.spu_detail_img_list}}" wx:key="{{index}}">
+        <block wx:for="{{spu.spu_detail_img_list}}" wx:key="index">
             <image mode="widthFix" class="detail-img" src="{{item.img}}"></image>
         </block>
     </view>
@@ -38,7 +38,7 @@
 
 
 <l-popup contentAlign="bottom" show="{{showRealm}}">
-    <s-realm bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}">
+    <s-realm bind:shopping="onShopping" bind:specchange="onSpecChange" order-way="{{orderWay}}" spu="{{spu}}">
     </s-realm>
 </l-popup>
 

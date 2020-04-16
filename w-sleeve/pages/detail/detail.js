@@ -58,6 +58,10 @@ Page({
     })
   },
 
+  onShopping(event) {
+    console.log(event)
+  },
+
   showRealm() {
     this.setData({
       showRealm: true
