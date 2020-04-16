@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="31e38354-d030-4019-826b-e0dc5c21567f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hot-list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/hot-list/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hot-list/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/hot-list/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/spu-scroll/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/spu-scroll/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/spu-scroll/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/spu-scroll/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/spu-preview-r/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/spu-preview-r/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/home/home.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +70,7 @@
       <workItem from="1579257171148" duration="29511000" />
       <workItem from="1579538032611" duration="105647000" />
       <workItem from="1580355789558" duration="5905000" />
-      <workItem from="1586965153608" duration="6479000" />
+      <workItem from="1586965153608" duration="6878000" />
     </task>
     <servers />
   </component>
