@@ -7,6 +7,15 @@ Component({
     banner: Object
   },
 
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    left: null,
+    rightTop: null,
+    rightBottom: null
+  },
+
   observers: {
     'banner': function (banner) {
       if(!banner) {
@@ -27,16 +36,27 @@ Component({
   },
 
   /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
    * 组件的方法列表
    */
   methods: {
+
+    leftTap() {
+      this.triggerEvent("itemtap", {
+        id: this.data.left.id
+      })
+    },
+
+    rightTopTap() {
+      this.triggerEvent("itemtap", {
+        id: this.data.rightTop.id
+      })
+    },
+
+    rightBottomTap() {
+      this.triggerEvent("itemtap", {
+        id: this.data.rightBottom.id
+      })
+    }
 
   }
 })

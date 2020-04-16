@@ -88,6 +88,13 @@ Page({
     }
   },
 
+  itemtap(event) {
+    const id = event.detail.id
+    wx.navigateTo({
+      url: `/pages/detail/detail?pid=${id}`
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

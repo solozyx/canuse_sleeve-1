@@ -22,6 +22,7 @@
         <s-spu-scroll
                 wx:if="{{themeE.online}}"
                 theme="{{themeE}}"
+                bind:itemtap="itemtap"
                 spu-list="{{themeESpu}}">
 
         </s-spu-scroll>
@@ -29,7 +30,7 @@
         <image class="quality" src="{{themeF.entrance_img}}"></image>
 
         <view class="hot-lis-conatiner">
-            <s-hot-list banner="{{bannerG}}"></s-hot-list>
+            <s-hot-list banner="{{bannerG}}" bind:itemtap="itemtap"></s-hot-list>
         </view>
 
         <image src="{{themeH.entrance_img}}" class="fashion">

@@ -19,6 +19,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onItemTap(event) {
+      const id = event.currentTarget.id
+      this.triggerEvent('itemtap',{
+        id: id
+      })
+    }
   }
 })

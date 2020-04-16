@@ -3,12 +3,12 @@
     </image>
     <view class="inner-container" hover-stay-time="{{300}}">
         <view hover-class="rect-hover">
-            <image class="left" src="{{left.img}}"></image>
+            <image class="left" src="{{left.img}}" bind:tap="leftTap"></image>
         </view>
 
         <view class="right-container">
-            <image class="right-size" src="{{rightTop.img}}"></image>
-            <image class="right-size" src="{{rightBottom.img}}"></image>
+            <image class="right-size" src="{{rightTop.img}}" bind:tap="rightTopTap"></image>
+            <image class="right-size" src="{{rightBottom.img}}" bind:tap="rightBottomTap"></image>
         </view>
     </view>
 </view>
