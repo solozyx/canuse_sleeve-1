@@ -59,7 +59,11 @@ Page({
   },
 
   onShopping(event) {
-    console.log(event)
+    const chosenSku = event.detail.sku
+    const skuCount = event.detail.skuCount
+    if (event.detail.orderWay == ShoppingWay.CART) {
+
+    }
   },
 
   showRealm() {

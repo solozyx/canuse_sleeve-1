@@ -60,7 +60,6 @@ Component({
             const fencesGroup = new FenceGroup(spu)
             fencesGroup.initFences1()
             this.data.judger = new Judger(fencesGroup)
-
             const defaultSku = fencesGroup.getDefaultSku()
             if (defaultSku) {
                 this.bindSkuData(defaultSku)

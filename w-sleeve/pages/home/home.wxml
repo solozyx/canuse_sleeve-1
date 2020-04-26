@@ -30,7 +30,7 @@
         <image class="quality" src="{{themeF.entrance_img}}"></image>
 
         <view class="hot-lis-conatiner">
-            <s-hot-list banner="{{bannerG}}" bind:itemtap="itemtap"></s-hot-list>
+            <s-hot-list id="hot-list" banner="{{bannerG}}" bind:itemtap="itemtap"></s-hot-list>
         </view>
 
         <image src="{{themeH.entrance_img}}" class="fashion">

@@ -40,6 +40,10 @@ Component({
    */
   methods: {
 
+    test() {
+      console.log("呵呵")
+    },
+
     leftTap() {
       this.triggerEvent("itemtap", {
         id: this.data.left.id
