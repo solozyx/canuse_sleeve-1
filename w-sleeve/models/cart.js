@@ -6,7 +6,7 @@ class Cart {
     static CART_ITEM_MAX_COUNT = 77
     static STORAGE_KEY = 'cart'
 
-    _cartData = []
+    _cartData = null
 
     constructor() {
         if (typeof Cart.instance === "object") {
@@ -14,6 +14,22 @@ class Cart {
         }
         Cart.instance = this
         return this
+    }
+
+    static isSoldOut(item) {
+        return item.sku.stock === 0
+    }
+
+    static isOnline(item) {
+        return item.sku.online
+    }
+
+    getAllCartItemFromLocal() {
+        return this._getCartData()
+    }
+
+    getCartItemCount() {
+        return this._getCartData().items.length
     }
 
     addItem(newItem) {
@@ -29,6 +45,58 @@ class Cart {
         const cartData = this._getCartData()
         cartData.items.splice(oldItemIndex, 1)
         this._refreshStorage()
+    }
+
+    isAllChecked() {
+        let allChecked = true
+        const cartItems = this._getCartData().items
+        for (let item of cartItems) {
+            if (!item.checked) {
+                allChecked = false
+                break
+            }
+        }
+        return allChecked
+    }
+
+    getCheckedItems() {
+        const cartItems = this._getCartData().items
+        const checkedCartItems = []
+        cartItems.forEach(item=>{
+            if(item.checked){
+                checkedCartItems.push(item)
+            }
+        })
+        return checkedCartItems
+    }
+
+    checkItem(skuId) {
+        const oldItem = this._findEqualItem(skuId)
+        oldItem.checked = !oldItem.checked
+        this._refreshStorage()
+    }
+
+    replaceItemCount(skuId, newCount) {
+        const oldItem = this._findEqualItem(skuId)
+        if (!oldItem) {
+            console.error('异常情况，更新CartItem中的数量不应当找不到相应数据')
+            return
+        }
+        if (newCount < 1) {
+            console.error('异常情况，CartItem的Count不可能小于1')
+            return
+        }
+        oldItem.count = newCount
+        if (oldItem.count >= Cart.SKU_MAX_COUNT) {
+            oldItem.count = Cart.SKU_MAX_COUNT
+        }
+        this._refreshStorage()
+    }
+
+
+    isEmpty() {
+        const cartData = this._getCartData()
+        return cartData.items.length === 0;
     }
 
     _findEqualItemIndex(skuId) {
@@ -73,7 +141,7 @@ class Cart {
         if (this._cartData !== null) {
             return this._cartData
         }
-        let cartData = wx.getStorageInfoSync(Cart.STORAGE_KEY)
+        let cartData = wx.getStorageSync(Cart.STORAGE_KEY)
         if (!cartData) {
             cartData = this._initCartDataStorage()
         }
@@ -91,7 +159,7 @@ class Cart {
 
     _beyondMaxCartItemCount() {
         const cartData = this._getCartData()
-        return cartData.item.length >= Cart.CART_ITEM_MAX_COUNT
+        return cartData.items.length >= Cart.CART_ITEM_MAX_COUNT
     }
 
 }

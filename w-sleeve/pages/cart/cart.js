@@ -1,11 +1,16 @@
 // pages/cart/cart.js
+import {Cart} from "../../models/cart";
+import {Calculator} from "../../models/calculator";
+
+const cart = new Cart()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    cartItems:[]
   },
 
   /**
@@ -16,32 +21,23 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const cart = new Cart()
+    const cartItems = cart.getAllCartItemFromLocal().items
+    if (cart.isEmpty()) {
+      this.empty()
+      return
+    }
+    this.setData({
+      cartItems: cartItems
+    })
+    this.notEmpty()
+    this.isAllChecked()
+    this.refreshCartData()
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -50,17 +46,60 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  onDeleteItem(event) {
+    this.isAllChecked()
+    this.refreshCartData()
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onCountFloat(event) {
+    this.refreshCartData()
+  },
 
+  onSingleCheck(event) {
+    this.isAllChecked()
+    this.refreshCartData()
+  },
+
+  isAllChecked() {
+    const allChecked = cart.isAllChecked()
+    console.log(allChecked)
+    this.setData({
+      allChecked
+    })
+  },
+
+  refreshCartData() {
+    const checkedItems = cart.getCheckedItems()
+    const calculator = new Calculator(checkedItems)
+    calculator.calc()
+    this.setCalcData(calculator)
+  },
+
+  setCalcData(calculator) {
+    const totalPrice = calculator.getTotalPrice()
+    const totalSkuCount = calculator.getTotalSkuCount()
+    this.setData({
+      totalPrice,
+      totalSkuCount
+    })
+  },
+
+  empty() {
+    this.setData({
+      isEmpty: true,
+    })
+    wx.hideTabBarRedDot({
+      index: 2
+    })
+  },
+
+  notEmpty() {
+    this.setData({
+      isEmpty: false
+    })
+    wx.showTabBarRedDot({
+      index: 2
+    })
   }
+
 })

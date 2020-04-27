@@ -2,16 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31e38354-d030-4019-826b-e0dc5c21567f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/cart-item.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/empty/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/empty/index.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/empty/index.wxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/empty/index.wxss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/imgs/bottom@address.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/imgs/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/calculator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/number.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/sku.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wxs/stock.wxs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hot-list/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/hot-list/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/realm/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/realm/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram_npm/lin-ui/countdown/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram_npm/lin-ui/countdown/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram_npm/lin-ui/water-flow/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram_npm/lin-ui/water-flow/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/app.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/cart/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/cart/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tab-bar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-bar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tab-bar/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/tab-bar/index.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/cart/cart.json" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart/cart.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/cart/cart.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart/cart.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/cart/cart.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart/cart.wxss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/detail/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail/detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/home.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/detail/detail.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail/detail.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +55,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/components/spu-preview-r" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/components/spu-preview-r" />
       <recent name="$PROJECT_DIR$/imgs" />
     </key>
@@ -82,7 +99,7 @@
       <workItem from="1587094552958" duration="7305000" />
       <workItem from="1587130115514" duration="198000" />
       <workItem from="1587698572927" duration="3000" />
-      <workItem from="1587826666380" duration="2053000" />
+      <workItem from="1587826666380" duration="18405000" />
     </task>
     <servers />
   </component>
@@ -99,14 +116,15 @@
     </state>
     <state width="500" height="445" key="SwitcherDM/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587004167979" />
     <state width="500" height="445" key="SwitcherDM/0.23.1680.947@0.23.1680.947" timestamp="1580375384734" />
-    <state x="490" y="233" width="667" height="486" key="find.popup" timestamp="1587032475170">
+    <state x="490" y="233" width="667" height="486" key="find.popup" timestamp="1588005994091">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
     <state x="490" y="233" width="667" height="486" key="find.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587032475170" />
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1587827039583">
+    <state x="490" y="233" width="667" height="486" key="find.popup/0.23.1680.947@0.23.1680.947" timestamp="1588005994091" />
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1588005894534">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587095829871" />
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/0.23.1680.947@0.23.1680.947" timestamp="1587827039583" />
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587986005799" />
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/0.23.1680.947@0.23.1680.947" timestamp="1588005894534" />
   </component>
 </project>
