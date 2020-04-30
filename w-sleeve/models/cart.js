@@ -1,3 +1,4 @@
+import {accAdd, accMultiply} from "../utils/number";
 
 class Cart {
 
@@ -7,6 +8,8 @@ class Cart {
     static STORAGE_KEY = 'cart'
 
     _cartData = null
+    checkedPrice = 0
+    checkedCount = 0
 
     constructor() {
         if (typeof Cart.instance === "object") {
@@ -37,6 +40,7 @@ class Cart {
             throw new Error('超过购物车最大数量限制')
         }
         this._pushItem(newItem)
+        this._calCheckedPrice()
         this._refreshStorage()
     }
 
@@ -44,6 +48,7 @@ class Cart {
         const oldItemIndex = this._findEqualItemIndex(skuId)
         const cartData = this._getCartData()
         cartData.items.splice(oldItemIndex, 1)
+        this._calCheckedPrice()
         this._refreshStorage()
     }
 
@@ -57,6 +62,36 @@ class Cart {
             }
         }
         return allChecked
+    }
+
+    checkAll(checked) {
+        const cartData = this._getCartData()
+        cartData.items.forEach(item => {
+            item.checked = checked
+        })
+        this._calCheckedPrice()
+        this._refreshStorage()
+    }
+
+    _calCheckedPrice() {
+        const cartItems = this.getCheckedItems()
+        if (cartItems.length == 0) {
+           this.checkedPrice = 0
+           this.checkedCount = 0
+           return
+        }
+        this.checkedPrice = 0
+        this.checkedCount = 0
+        let partTotalPrice = 0
+        for (let cartItem of cartItems) {
+            if (cartItem.sku.discount_price) {
+                partTotalPrice = accMultiply(cartItem.count, cartItem.sku.discount_price)
+            } else {
+                partTotalPrice = accMultiply(cartItem.count, cartItem.sku.price)
+            }
+            this.checkedPrice = accAdd(this.checkedPrice, partTotalPrice)
+            this.checkedCount += cartItem.count
+        }
     }
 
     getCheckedItems() {
@@ -73,6 +108,7 @@ class Cart {
     checkItem(skuId) {
         const oldItem = this._findEqualItem(skuId)
         oldItem.checked = !oldItem.checked
+        this._calCheckedPrice()
         this._refreshStorage()
     }
 
@@ -90,6 +126,7 @@ class Cart {
         if (oldItem.count >= Cart.SKU_MAX_COUNT) {
             oldItem.count = Cart.SKU_MAX_COUNT
         }
+        this._calCheckedPrice()
         this._refreshStorage()
     }
 

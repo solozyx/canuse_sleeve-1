@@ -10,7 +10,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cartItems:[]
+    cartItems:[],
+    isEmpty: false,
+    allChecked: false,
+    totalPrice: 0,
+    totalSkuCount: 0
   },
 
   /**
@@ -69,18 +73,9 @@ Page({
   },
 
   refreshCartData() {
-    const checkedItems = cart.getCheckedItems()
-    const calculator = new Calculator(checkedItems)
-    calculator.calc()
-    this.setCalcData(calculator)
-  },
-
-  setCalcData(calculator) {
-    const totalPrice = calculator.getTotalPrice()
-    const totalSkuCount = calculator.getTotalSkuCount()
     this.setData({
-      totalPrice,
-      totalSkuCount
+      totalPrice: cart.checkedPrice,
+      totalSkuCount: cart.checkedCount
     })
   },
 
@@ -99,6 +94,25 @@ Page({
     })
     wx.showTabBarRedDot({
       index: 2
+    })
+  },
+
+  onSettle() {
+    if (this.data.totalSkuCount <= 0) {
+      return
+    }
+    wx.navigateTo({
+      url: 'pages/order/order'
+    })
+  },
+
+  onCheckAll(event) {
+    const checked = event.detail.checked
+    cart.checkAll(checked)
+    this.setData({
+      cartItems: this.data.cartItems,
+      totalPrice: cart.checkedPrice,
+      totalSkuCount: cart.checkedCount
     })
   }
 
