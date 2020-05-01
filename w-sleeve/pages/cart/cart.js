@@ -20,15 +20,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    await cart.getAllSkuFromServer()
+    //
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const cart = new Cart()
     const cartItems = cart.getAllCartItemFromLocal().items
     if (cart.isEmpty()) {
       this.empty()
@@ -37,6 +37,7 @@ Page({
     this.setData({
       cartItems: cartItems
     })
+    cart._calCheckedPrice()
     this.notEmpty()
     this.isAllChecked()
     this.refreshCartData()

@@ -1,4 +1,5 @@
 import {accAdd, accMultiply} from "../utils/number";
+import {Sku} from "./sku";
 
 class Cart {
 
@@ -31,8 +32,50 @@ class Cart {
         return this._getCartData()
     }
 
+    async getAllSkuFromServer() {
+        const cartData = this._getCartData();
+        if (cartData.items.length === 0) {
+            return null
+        }
+        const skuIds = this.getSkuIds()
+        const serverData = await Sku.getSkusByIds(skuIds)
+        this._refreshByServerData(serverData)
+        this._calCheckedPrice()
+        this._refreshStorage()
+        return this._getCartData()
+    }
+
     getCartItemCount() {
         return this._getCartData().items.length
+    }
+
+    getSkuIds() {
+        const cartData = this._getCartData()
+        if (cartData.items.length === 0) {
+            return []
+        }
+        return cartData.items.map(item => item.skuId)
+    }
+
+    _refreshByServerData(serverData) {
+        const cartData = this._getCartData()
+        cartData.items.forEach(item=>{
+            this._setLatestCartItem(item, serverData)
+        })
+    }
+
+    _setLatestCartItem(item, serverData) {
+        let removed = true
+        for (let sku of serverData) {
+            if (item.skuId === sku.id) {
+                removed = false
+                item.sku = sku
+                break
+            }
+        }
+        if(removed){
+            item.sku.online = false
+        }
     }
 
     addItem(newItem) {
