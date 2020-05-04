@@ -61,7 +61,6 @@ Component({
       })
     },
 
-
     checkedItem(event) {
       const checked = event.detail.checked
       cart.checkItem(this.properties.cartItem.skuId)

@@ -103,7 +103,7 @@ Page({
       return
     }
     wx.navigateTo({
-      url: 'pages/order/order'
+      url: '/pages/order/order'
     })
   },
 

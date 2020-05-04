@@ -1,2 +1,4 @@
-<!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+
+<view>
+    <s-address bind:address="onChooseAddress"></s-address>
+</view>

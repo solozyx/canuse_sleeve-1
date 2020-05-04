@@ -26,7 +26,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
+	"libVersion": "2.11.0",
 	"appid": "wx10822e546c7f50c9",
 	"projectname": "w-sleeve",
 	"debugOptions": {

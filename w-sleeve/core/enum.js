@@ -11,6 +11,12 @@ const ShoppingWay = {
     BUY: 'buy'
 }
 
+const AuthAddress = {
+    DENY: 'deny',
+    NOT_AUTH: 'not_auth',
+    AUTHORIZED: 'authorized'
+}
+
 const SpuListType = {
     THEME: 'theme',
     ROOT_CATEGORY: 'root-category',
@@ -18,4 +24,4 @@ const SpuListType = {
     LATEST: 'latest'
 }
 
-export {CellStatus, ShoppingWay, SpuListType}
+export {CellStatus, ShoppingWay, SpuListType, AuthAddress}
