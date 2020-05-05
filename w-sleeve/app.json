@@ -7,7 +7,8 @@
     "pages/my/my",
     "pages/search/search",
     "pages/spu-list/spu-list",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -71,6 +72,7 @@
     "s-spu-preview": "/components/spu-preview/index",
     "s-spu-preview-r": "components/spu-preview-r/index",
     "s-empty": "/components/empty/index",
-    "s-checkbox": "/components/checkbox/index"
+    "s-checkbox": "/components/checkbox/index",
+    "s-coupon": "/components/coupon/index"
   }
 }

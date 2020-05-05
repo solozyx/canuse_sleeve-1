@@ -1,5 +1,6 @@
 
 import {Cart} from "./models/cart";
+import {Token} from "./models/token";
 
 App({
     onLaunch() {
@@ -9,5 +10,8 @@ App({
                 index:2
             })
         }
+
+        const token = new Token()
+        token.verify()
     }
 })

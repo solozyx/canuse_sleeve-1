@@ -33,4 +33,9 @@ const OrderExceptionType = {
     EMPTY: 'empty'
 }
 
-export {CellStatus, ShoppingWay, SpuListType, AuthAddress, OrderExceptionType}
+const CouponCenterType = {
+    ACTIVITY: 'activity',
+    SPU_CATEGORY: 'spu_category'
+}
+
+export {CellStatus, ShoppingWay, SpuListType, AuthAddress, OrderExceptionType, CouponCenterType}

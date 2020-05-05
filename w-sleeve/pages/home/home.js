@@ -5,6 +5,7 @@ import {Banner} from "../../models/banner";
 import {Category} from "../../models/category";
 import {Activity} from "../../models/activity";
 import {SpuPaging} from "../../models/spu-paging";
+import {CouponCenterType} from "../../core/enum";
 
 Page({
 
@@ -92,6 +93,13 @@ Page({
     const id = event.detail.id
     wx.navigateTo({
       url: `/pages/detail/detail?pid=${id}`
+    })
+  },
+
+  onGoToCoupons(event) {
+    const name = event.currentTarget.dataset.aname
+    wx.navigateTo({
+      url: `/pages/coupon/coupon?name=${name}&type=${CouponCenterType.ACTIVITY}`
     })
   },
 
