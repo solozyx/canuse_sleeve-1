@@ -1,4 +1,5 @@
 import {Http} from "../utils/http";
+import {Httplocal} from "../utils/httplocal";
 
 class Activity {
 
@@ -11,7 +12,7 @@ class Activity {
     }
 
     static async getActivityWithCoupon(activityName) {
-        return Http.request({
+        return Httplocal.request({
             url: `activity/name/${activityName}/with_coupon`
         })
     }

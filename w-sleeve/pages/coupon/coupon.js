@@ -23,7 +23,7 @@ Page({
 
     if (type === CouponCenterType.ACTIVITY) {
       const activity = await Activity.getActivityWithCoupon(aName)
-      coupons = activity.coupons
+      coupons = activity.data.coupons
     }
     console.log(coupons)
     this.setData({

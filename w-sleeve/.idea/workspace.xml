@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31e38354-d030-4019-826b-e0dc5c21567f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/exception-config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/http-exception.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/token.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/coupon/coupon-data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/coupon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/date.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/httplocal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wxs/status.wxs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/coupon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/coupon/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/coupon/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/components/coupon/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/coupon/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/components/coupon/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/enum.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/activity.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/activity.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/home.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/home.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/coupon/coupon.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coupon/coupon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/coupon/coupon.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coupon/coupon.wxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,17 +45,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/core" />
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/models" />
-      <recent name="$PROJECT_DIR$/components/models" />
-      <recent name="$PROJECT_DIR$/components" />
+      <recent name="$PROJECT_DIR$/components/coupon" />
+      <recent name="$PROJECT_DIR$/wxs" />
+      <recent name="$PROJECT_DIR$/config" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -87,7 +90,7 @@
       <workItem from="1587130115514" duration="198000" />
       <workItem from="1587698572927" duration="3000" />
       <workItem from="1587826666380" duration="24890000" />
-      <workItem from="1588260246951" duration="19803000" />
+      <workItem from="1588260246951" duration="23712000" />
     </task>
     <servers />
   </component>
@@ -110,10 +113,10 @@
     </state>
     <state x="490" y="233" width="667" height="486" key="find.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587032475170" />
     <state x="490" y="233" width="667" height="486" key="find.popup/0.23.1680.947@0.23.1680.947" timestamp="1588266650705" />
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1588666133718">
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1588678023242">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
     <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587986005799" />
-    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/0.23.1680.947@0.23.1680.947" timestamp="1588666133718" />
+    <state x="496" y="229" width="670" height="676" key="search.everywhere.popup/0.23.1680.947@0.23.1680.947" timestamp="1588678023242" />
   </component>
 </project>
