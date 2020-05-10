@@ -1,6 +1,8 @@
 import {Cart} from "../../models/cart";
 import {Sku} from "../../models/sku";
 import {OrderItem} from "../../models/order-item";
+import {Coupon} from "../../models/coupon";
+import {Order} from "../../models/order";
 
 const cart = new Cart()
 Page({
@@ -15,11 +17,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+   onLoad: async function (options) {
     let orderItems;
     let localItemCount
     const skuIds = cart.getCheckedSkuIds()
-    orderItems = this.getCartOrderItems(skuIds)
+    orderItems = await this.getCartOrderItems(skuIds)
     localItemCount = skuIds.length
 
     const order = new Order(orderItems, localItemCount)
@@ -32,6 +34,9 @@ Page({
       // })
       return
     }
+
+    const coupons = await Coupon.getMySelfWithCategory()
+    console.log(coupons.data)
   },
 
   async getCartOrderItems(skuIds) {
@@ -42,7 +47,7 @@ Page({
   },
 
   packageOrderItems(skus) {
-    skus.map(sku => {
+    return skus.map(sku => {
       const count = cart.getSkuCountBySkuId(sku.id)
       return new OrderItem(sku, count)
     })

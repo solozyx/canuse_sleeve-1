@@ -20,7 +20,7 @@ class Coupon {
     }
 
     static async getMySelfWithCategory() {
-        return Http.request({
+        return  Httplocal.request({
             url: `coupon/myself/available/with_category`
         })
     }
