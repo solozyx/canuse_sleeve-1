@@ -3,6 +3,8 @@ import {Sku} from "../../models/sku";
 import {OrderItem} from "../../models/order-item";
 import {Coupon} from "../../models/coupon";
 import {Order} from "../../models/order";
+import {CouponOperate, ShoppingWay} from "../../core/enum";
+import {CouponBO} from "../../models/coupon-bo";
 
 const cart = new Cart()
 Page({
@@ -11,7 +13,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    order: null,
+    submitBtnDisable: false,
+    shoppingWay: ShoppingWay.BUY,
   },
 
   /**
@@ -20,23 +24,43 @@ Page({
    onLoad: async function (options) {
     let orderItems;
     let localItemCount
-    const skuIds = cart.getCheckedSkuIds()
-    orderItems = await this.getCartOrderItems(skuIds)
-    localItemCount = skuIds.length
+
+    const shoppingWay = options.way
+    this.data.shoppingWay = shoppingWay
+
+    if (shoppingWay === ShoppingWay.BUY) {
+      const skuId = options.sku_id
+      const count = options.count
+      orderItems = await this.getSingleOrderItems(skuId, count)
+      localItemCount = 1
+    } else {
+      const skuIds = cart.getCheckedSkuIds()
+      orderItems = await this.getCartOrderItems(skuIds)
+      localItemCount = skuIds.length
+    }
 
     const order = new Order(orderItems, localItemCount)
+    this.data.order = order
+
     try {
       order.checkOrderIsOk()
     } catch (e) {
       console.error(e)
-      // this.setData({
-      //     isOk: false
-      // })
+      this.setData({
+          isOk: false
+      })
       return
     }
 
-    const coupons = await Coupon.getMySelfWithCategory()
-    console.log(coupons.data)
+    const res = await Coupon.getMySelfWithCategory()
+    const coupons = res.data
+    const couponBOList = this.packageCouponBOList(coupons, order)
+    this.setData({
+      orderItems,
+      couponBOList,
+      totalPrice: order.getTotalPrice(),
+      finalTotalPrice: order.getTotalPrice()
+    })
   },
 
   async getCartOrderItems(skuIds) {
@@ -46,11 +70,45 @@ Page({
     return orderItems
   },
 
+  async getSingleOrderItems(skuId, count) {
+    const skus = await Sku.getSkusByIds(skuId)
+    return [new OrderItem(skus[0], count)];
+  },
+
   packageOrderItems(skus) {
     return skus.map(sku => {
       const count = cart.getSkuCountBySkuId(sku.id)
       return new OrderItem(sku, count)
     })
+  },
+
+  packageCouponBOList(coupons, order) {
+    return coupons.map(coupon => {
+      const couponBO = new CouponBO(coupon)
+      couponBO.meetCondition(order)
+      return couponBO
+    })
+  },
+
+  onChooseCoupon(event) {
+    const couponObj = event.detail.coupon
+    const couponOperate = event.detail.operate
+
+    if (couponOperate === CouponOperate.PICK) {
+      this.data.currentCouponId = couponObj.id
+      const priceObj = CouponBO.getFinalPrice(this.data.order.getTotalPrice(), couponObj)
+      this.setData({
+        finalTotalPrice: priceObj.finalPrice,
+        discountMoney: priceObj.discountMoney
+      })
+    } else {
+      this.data.currentCouponId = null
+      this.setData({
+        finalTotalPrice: this.data.order.getTotalPrice(),
+        discountMoney: 0
+      })
+    }
+
   },
 
   /**
