@@ -73,6 +73,7 @@
     "s-spu-preview-r": "components/spu-preview-r/index",
     "s-empty": "/components/empty/index",
     "s-checkbox": "/components/checkbox/index",
-    "s-coupon": "/components/coupon/index"
+    "s-coupon": "/components/coupon/index",
+    "s-coupon-mini": "/components/coupon-mini/index"
   }
 }
