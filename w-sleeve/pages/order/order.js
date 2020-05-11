@@ -5,6 +5,7 @@ import {Coupon} from "../../models/coupon";
 import {Order} from "../../models/order";
 import {CouponOperate, ShoppingWay} from "../../core/enum";
 import {CouponBO} from "../../models/coupon-bo";
+import {showToast} from "../../utils/ui";
 
 const cart = new Cart()
 Page({
@@ -14,6 +15,9 @@ Page({
    */
   data: {
     order: null,
+
+    address: null,
+
     submitBtnDisable: false,
     shoppingWay: ShoppingWay.BUY,
   },
@@ -109,6 +113,18 @@ Page({
       })
     }
 
+  },
+
+  onChooseAddress(event) {
+    const address = event.detail.address
+    this.data.address = address
+  },
+
+  onSubmit() {
+    if (!this.data.address) {
+      showToast('请选择收获地址')
+      return
+    }
   },
 
   /**
