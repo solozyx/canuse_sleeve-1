@@ -3,6 +3,7 @@ import {Http} from "../utils/http";
 import {Httplocal} from "../utils/httplocal";
 
 class Coupon {
+
     static async collectCoupon(cid) {
         return await Httplocal.request({
             method: 'POST',
@@ -12,6 +13,12 @@ class Coupon {
         // return await Http
     }
 
+    static async getMyCoupons(status) {
+        const resp = await Httplocal.request({
+            url: `coupon/myself/by/status/${status}`
+        })
+        return resp.data
+    }
 
     static async getCouponsByCategory(cid) {
         return await Http.request({

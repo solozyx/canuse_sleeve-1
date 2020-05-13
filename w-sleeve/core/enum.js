@@ -56,6 +56,15 @@ const CouponStatus = {
     EXPIRED:3
 }
 
+const OrderStatus = {
+    ALL: 0,
+    UNPAID: 1,
+    PAID: 2,
+    DELIVERED: 3,
+    FINISHED: 4,
+    CANCELED: 5,
+}
+
 export {
     CellStatus,
     ShoppingWay,
@@ -65,5 +74,6 @@ export {
     CouponCenterType,
     CouponStatus,
     CouponType,
-    CouponOperate
+    CouponOperate,
+    OrderStatus
 }

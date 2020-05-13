@@ -74,13 +74,21 @@ Page({
   },
 
   onShopping(event) {
+
     const chosenSku = event.detail.sku
     const skuCount = event.detail.skuCount
+
     if (event.detail.orderWay == ShoppingWay.CART) {
       const cart = new Cart()
       const cartItem = new CartItem(chosenSku, skuCount)
       cart.addItem(cartItem)
       this.updateCartItemCount()
+    }
+
+    if(event.detail.orderWay === ShoppingWay.BUY){
+      wx.navigateTo({
+        url:`/pages/order/order?sku_id=${chosenSku.id}&count=${skuCount}&way=${ShoppingWay.BUY}`
+      })
     }
   },
 

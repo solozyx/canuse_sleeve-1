@@ -84,6 +84,14 @@
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pay-success",
+					"pathName": "pages/pay-success/pay-success",
+					"query": "pid=15",
 					"scene": null
 				}
 			]

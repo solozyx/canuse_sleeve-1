@@ -1,7 +1,8 @@
 import {OrderException} from "../core/order-exception";
-import {OrderExceptionType} from "../core/enum";
+import {OrderExceptionType, OrderStatus} from "../core/enum";
 import {accAdd} from "../utils/number";
 import {Httplocal} from "../utils/httplocal";
+import {Paging} from "../utils/paging";
 
 
 class Order {
@@ -94,6 +95,66 @@ class Order {
             return true
         }
         return false
+    }
+
+
+    static async getPaidCount() {
+        const orderPage = await Httplocal.request({
+            url: `order/by/status/${OrderStatus.PAID}`,
+            data:{
+                start:0,
+                count:1
+            }
+        })
+        return orderPage.total
+    }
+
+    static async getUnpaidCount() {
+        const orderPage = await Httplocal.request({
+            url: `order/status/unpaid`,
+            data:{
+                start:0,
+                count:1
+            }
+        })
+        return orderPage.data.total
+    }
+
+    static async getDeliveredCount() {
+        const orderPage = await Httplocal.request({
+            url: `order/by/status/${OrderStatus.DELIVERED}`,
+            data: {
+                start:0,
+                count:1
+            }
+        })
+        return orderPage.total
+    }
+
+    static getPagingCanceled() {
+        return new Paging({
+            url:`order/status/canceled`
+        })
+    }
+
+    static async getDetail(oid) {
+        return Httplocal.request({
+            url: `order/detail/${oid}`
+        })
+    }
+
+    static getPagingByStatus(status) {
+        return new Paging({
+            url:`order/by/status/${status}`
+        })
+        // return Http.request({
+        // })
+    }
+
+    static getPagingUnpaid() {
+        return new Paging({
+            url:`order/status/unpaid`
+        })
     }
 }
 
