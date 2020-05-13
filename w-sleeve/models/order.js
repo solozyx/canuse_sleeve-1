@@ -106,7 +106,7 @@ class Order {
                 count:1
             }
         })
-        return orderPage.total
+        return orderPage.data.total
     }
 
     static async getUnpaidCount() {
@@ -128,7 +128,7 @@ class Order {
                 count:1
             }
         })
-        return orderPage.total
+        return orderPage.data.total
     }
 
     static getPagingCanceled() {
