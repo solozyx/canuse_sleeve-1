@@ -8,7 +8,8 @@
     "pages/search/search",
     "pages/spu-list/spu-list",
     "pages/order/order",
-    "pages/coupon/coupon"
+    "pages/coupon/coupon",
+    "pages/pay-success/pay-success"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -58,6 +59,7 @@
     "l-tag": "/miniprogram_npm/lin-ui/tag/index",
     "l-segment": "/miniprogram_npm/lin-ui/segment/index",
     "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
+    "l-status-show": "/miniprogram_npm/lin-ui/status-show/index",
     "l-button": "/miniprogram_npm/lin-ui/button/index",
     "l-popup": "/miniprogram_npm/lin-ui/popup/index",
     "l-loadmore": "/miniprogram_npm/lin-ui/loadmore/index",
