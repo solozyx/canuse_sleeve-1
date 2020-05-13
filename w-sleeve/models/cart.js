@@ -118,6 +118,16 @@ class Cart {
         this._refreshStorage()
     }
 
+    removeCheckedItems() {
+        const cartData = this._getCartData()
+        for (let i = 0; i < cartData.items.length; i++) {
+            if (cartData.items[i].checked) {
+                cartData.items.splice(i, 1)
+            }
+        }
+        this._refreshStorage()
+    }
+
     isAllChecked() {
         let allChecked = true
         const cartItems = this._getCartData().items

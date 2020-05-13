@@ -1,11 +1,13 @@
 import {Cart} from "../../models/cart";
 import {Sku} from "../../models/sku";
 import {OrderItem} from "../../models/order-item";
-import {Coupon} from "../../models/coupon";
 import {Order} from "../../models/order";
-import {CouponOperate, ShoppingWay} from "../../core/enum";
+import {Coupon} from "../../models/coupon";
 import {CouponBO} from "../../models/coupon-bo";
+import {CouponOperate, ShoppingWay} from "../../core/enum";
 import {showToast} from "../../utils/ui";
+import {OrderPost} from "../../models/order-post";
+import {Payment} from "../../models/payment";
 
 const cart = new Cart()
 Page({
@@ -14,12 +16,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    order: null,
+    finalTotalPrice: 0,
+    totalPrice: 0,
+    discountMoney: 0,
+    submitBtnDisable: false,
 
     address: null,
 
-    submitBtnDisable: false,
-    shoppingWay: ShoppingWay.BUY,
+    currentCouponId: null,
+    order: null,
+    isOk: true,
+
+    orderFail: false,
+    orderFailMsg: '',
+
+    shoppingWay: ShoppingWay.BUY
   },
 
   /**
@@ -120,10 +131,88 @@ Page({
     this.data.address = address
   },
 
-  onSubmit() {
+  async onSubmit() {
     if (!this.data.address) {
       showToast('请选择收获地址')
       return
+    }
+    this.disableSubmitBtn()
+    const order = this.data.order
+
+    const orderPost = new OrderPost(
+        this.data.totalPrice,
+        this.data.finalTotalPrice,
+        this.data.currentCouponId,
+        order.getOrderSkuInfoList(),
+        this.data.address
+    )
+
+    const oid = await this.postOrder(orderPost)
+    if (!oid) {
+      this.enableSubmitBtn()
+      return
+    }
+
+    if (this.data.shoppingWay === ShoppingWay.CART) {
+      cart.removeCheckedItems()
+    }
+
+    // 支付 小程序/前端 支付
+    // 支付参数 调用 API
+
+    // 支付 wx.requestPayment(params)
+    // API => params
+
+    // wx.lin.showLoading({
+    //   type: "flash",
+    //   fullScreen: true,
+    //   color: "#157658"
+    // })
+
+    const payParams = await Payment.getPayParams(oid)
+
+    if (!payParams) {
+      return
+    }
+
+    try {
+      const res = await wx.requestPayment(payParams)
+      wx.redirectTo({
+        url: `/pages/pay-success/pay-success?oid=${oid}`
+      })
+    } catch (e) {
+      wx.redirectTo({
+        url: `/pages/my-order/my-order?key=${1}`
+      })
+    }
+
+  },
+
+  disableSubmitBtn() {
+    this.setData({
+      submitBtnDisable: true
+    })
+  },
+
+  enableSubmitBtn() {
+    this.setData({
+      submitBtnDisable: false
+    })
+  },
+
+  async postOrder(orderPost) {
+    try {
+      const serverOrder = await Order.postOrderToServer(orderPost)
+      if (serverOrder) {
+        return serverOrder.data.id
+      }
+      // throwError
+    } catch (e) {
+      // code
+      this.setData({
+        orderFail: true,
+        orderFailMsg: e.message
+      })
     }
   },
 

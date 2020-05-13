@@ -1,6 +1,7 @@
 import {OrderException} from "../core/order-exception";
 import {OrderExceptionType} from "../core/enum";
 import {accAdd} from "../utils/number";
+import {Httplocal} from "../utils/httplocal";
 
 
 class Order {
@@ -41,6 +42,25 @@ class Order {
             const price = accAdd(pre, item.finalPrice)
             return price
         }, 0)
+    }
+
+
+    getOrderSkuInfoList() {
+        return this.orderItems.map(item => {
+            return {
+                id: item.skuId,
+                count: item.count
+            }
+        })
+    }
+
+    static async postOrderToServer(orderPost) {
+        return await Httplocal.request({
+            url: 'order',
+            method: 'POST',
+            data: orderPost,
+            throwError: true
+        })
     }
 
     getTotalPriceByCategoryIdList(categoryIdList) {
