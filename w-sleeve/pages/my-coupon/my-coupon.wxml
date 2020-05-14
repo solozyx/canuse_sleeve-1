@@ -1,0 +1,5 @@
+<view class="container">
+    <block wx:for="{{coupons}}">
+        <s-coupon coupon="{{item}}" status="{{item.is_collected}}"></s-coupon>
+    </block>
+</view>

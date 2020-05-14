@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="31e38354-d030-4019-826b-e0dc5c21567f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/coupon/coupon.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/coupon/coupon.wxss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +81,8 @@
       <workItem from="1587826666380" duration="24890000" />
       <workItem from="1588260246951" duration="24781000" />
       <workItem from="1589122953066" duration="12461000" />
-      <workItem from="1589376802674" duration="6296000" />
+      <workItem from="1589376802674" duration="8986000" />
+      <workItem from="1589464848878" duration="1013000" />
     </task>
     <servers />
   </component>
@@ -102,11 +104,11 @@
     </state>
     <state width="500" height="445" key="SwitcherDM/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587004167979" />
     <state width="500" height="445" key="SwitcherDM/0.23.1680.947@0.23.1680.947" timestamp="1588690048039" />
-    <state x="490" y="233" width="667" height="486" key="find.popup" timestamp="1589382590157">
+    <state x="490" y="233" width="667" height="486" key="find.popup" timestamp="1589465218875">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
     <state x="490" y="233" width="667" height="486" key="find.popup/-2560.23.2560.1417/0.23.1680.947@0.23.1680.947" timestamp="1587032475170" />
-    <state x="490" y="233" width="667" height="486" key="find.popup/0.23.1680.947@0.23.1680.947" timestamp="1589382590157" />
+    <state x="490" y="233" width="667" height="486" key="find.popup/0.23.1680.947@0.23.1680.947" timestamp="1589465218875" />
     <state x="496" y="229" width="670" height="676" key="search.everywhere.popup" timestamp="1589387286389">
       <screen x="0" y="23" width="1680" height="947" />
     </state>
