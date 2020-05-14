@@ -1,5 +1,6 @@
 import boolean from "../miniprogram_npm/lin-ui/common/async-validator/validator/boolean";
 import {Http} from "./http";
+import {Httplocal} from "./httplocal";
 
 class Paging {
 
@@ -35,7 +36,8 @@ class Paging {
 
     async _actualGetData() {
         const req = this._getCurrentReq()
-        let paging = await Http.request(req)
+        let page = await Httplocal.request(req)
+        let paging = page.data
         if (!paging) {
             return null
         }

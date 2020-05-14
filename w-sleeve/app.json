@@ -82,6 +82,7 @@
     "s-empty": "/components/empty/index",
     "s-checkbox": "/components/checkbox/index",
     "s-coupon": "/components/coupon/index",
-    "s-coupon-mini": "/components/coupon-mini/index"
+    "s-coupon-mini": "/components/coupon-mini/index",
+    "l-countdown": "/miniprogram_npm/lin-ui/countdown/index"
   }
 }
