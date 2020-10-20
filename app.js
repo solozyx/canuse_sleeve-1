@@ -11,7 +11,7 @@ App({
             })
         }
 
-        const token = new Token()
-        token.verify()
+        // const token = new Token()
+        // token.verify()
     }
 })
